@@ -477,13 +477,11 @@ public class Launcher extends Activity
             if (DISABLE_SYNCHRONOUS_BINDING_CURRENT_PAGE) {
                 // If the user leaves launcher, then we should just load items asynchronously when
                 // they return.
-                Log.i("jushenziao","mModel.startLoader(PagedView.INVALID_RESTORE_PAGE);");
                 mModel.startLoader(PagedView.INVALID_RESTORE_PAGE);
             } else {
                 // We only load the page synchronously if the user rotates (or triggers a
                 // configuration change) while launcher is in the foreground
                 mModel.startLoader(mWorkspace.getRestorePage());
-                Log.i("jushenziao","mModel.startLoader(mWorkspace.getRestorePage());");
             }
         }
 

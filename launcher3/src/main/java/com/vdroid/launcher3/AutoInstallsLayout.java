@@ -75,7 +75,7 @@ public class AutoInstallsLayout {
                 appWidgetHost, callback);
     }
 
-    static AutoInstallsLayout get(Context context, String pkg, Resources targetRes,
+    static AutoInstallsLayout  get(Context context, String pkg, Resources targetRes,
             AppWidgetHost appWidgetHost, LayoutParserCallback callback) {
         InvariantDeviceProfile grid = LauncherAppState.getInstance().getInvariantDeviceProfile();
 

@@ -25,6 +25,7 @@ import android.content.res.Resources.Theme;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Region;
 import android.graphics.drawable.Drawable;
@@ -158,6 +159,7 @@ public class BubbleTextView extends TextView
         }
 
         setAccessibilityDelegate(LauncherAppState.getInstance().getAccessibilityDelegate());
+
     }
 
     public void applyFromShortcutInfo(ShortcutInfo info, IconCache iconCache) {
@@ -165,7 +167,7 @@ public class BubbleTextView extends TextView
     }
 
     public void applyFromShortcutInfo(ShortcutInfo info, IconCache iconCache,
-            boolean promiseStateChanged) {
+                                      boolean promiseStateChanged) {
         Bitmap b = info.getIcon(iconCache);
 
         FastBitmapDrawable iconDrawable = mLauncher.createIconDrawable(b);

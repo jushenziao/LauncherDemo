@@ -4528,4 +4528,27 @@ public class Workspace extends PagedView
             }
         }
     }
+
+    void updateShortcut(String className) {
+        ArrayList<ShortcutAndWidgetContainer> childrenLayouts = getAllShortcutAndWidgetContainers();
+        for (ShortcutAndWidgetContainer layout: childrenLayouts) {
+            int childCount = layout.getChildCount();
+            for (int j = 0; j < childCount; j++) {
+                final View view = layout.getChildAt(j);
+                Object tag = view.getTag();
+                if (tag instanceof ShortcutInfo) {
+                    ShortcutInfo info = (ShortcutInfo) tag;
+                    try {
+                        if (className.equals(info.intent.getComponent().getClassName())) {
+                            BubbleTextView shortcut = (BubbleTextView) view;
+                            info.updateIcon(mIconCache);
+                            shortcut.applyFromShortcutInfo(info, mIconCache);
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "" + e);
+                    }
+                }
+            }
+        }
+    }
 }
